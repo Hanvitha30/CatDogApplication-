@@ -1,3 +1,10 @@
-<p>
-  Home works!
-</p>
+
+
+<div class="col-12">
+   <a class="btn ml-auto" href="javascript:void(0)">Home Page</a> 
+   <span class="d-flex align-items-center homePage"> 
+	  <a *ngIf="user !== ''" href="javascript:void(0)" class="btn ml-auto">{{user}}</a>
+      <a *ngIf="user === ''" href="javascript:void(0)" class="btn" routerLink="/auth/login">Login</a>
+      <a *ngIf="user !== ''" href="javascript:void(0)" class="btn" routerLink="/dashboard">Dashboard</a> 
+   </span>
+</div>

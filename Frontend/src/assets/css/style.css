@@ -13380,5 +13380,7 @@ dl {
 	padding-top: 25px; 
     padding-left: 25px;
 }
- 
+.homePage {
+	float:right
+} 
 /*# sourceMappingURL=style.css.map */
