@@ -1,0 +1,45 @@
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth">
+            <div class="row flex-grow">
+                <div class="col-lg-4 mx-auto">
+                    <div class="auth-form-light text-left p-5">
+                        <h4>Game Starts..!</h4>
+                        <h6 class="font-weight-light">Guess the Number</h6>
+                        <form class="forms-sample" (ngSubmit)="submitInput()" #gameForm="ngForm">
+                            <div class="form-group">
+                                <input type="text" minlength="4" maxlength="4" pattern="[0-9]+" class="form-control" id="game-input" required [(ngModel)]="gameInput" name="gameinput" #gameinput="ngModel" placeholder="Guess the number" />
+
+                                <div class="row errors-section" *ngIf="gameinput.errors">
+                                    <div *ngIf="gameinput.errors.required && gameinput.dirty">
+                                        <code>Please enter the number</code>
+                                    </div>
+
+                                    <div *ngIf="gameinput.errors.minlength">
+                                        <code>Number must be at least 4 characters long.</code>
+                                    </div>
+
+                                    <div *ngIf="gameinput.errors.pattern">
+                                        <code>Only numerics allowed</code>
+                                    </div>
+                                </div>
+								<div class="errors-section" *ngIf="displayMessage !== ''">
+									<span class="text-success">{{displayMessage}}</span> 
+								</div>
+								<div class="errors-section" *ngIf="errorMessage !== ''">
+									<code>{{errorMessage}}</code> 
+								</div>
+
+                            </div>
+                            <div class="mt-3">
+                                <button type="submit" class="btn btn-gradient-primary mr-2" [ngClass]="{'btn-gradient-secondary':!gameForm.form.valid, 'btn-gradient-primary':gameForm.form.valid}" [disabled]="!gameForm.form.valid">Submit</button>
+                                <button class="btn btn-light" routerLink="/dashboard">Cancel</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
